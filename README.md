@@ -5,7 +5,7 @@ The personal Python 3 project template for nimaid.
 
 Syntax help:
 ```
->python3-template.exe -h
+> python3-template.exe -h
 usage: python3-template.exe [-h] -1 FIRST_ARG [-2 SECOND_ARG] [-o OPCODE]
 
 A template for Python 3 scripts, by nimaid.
