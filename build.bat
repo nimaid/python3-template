@@ -13,6 +13,7 @@ set EXE=%DISTDIR%\%MAINFAILENAME%.exe
 
 echo Building portable EXE...
 call conda run -n %ENVNAME% pyinstaller ^
+    --clean ^
     --noconfirm ^
 	--add-data icon.png;. ^
     --onefile ^
