@@ -3,7 +3,7 @@ The personal Python 3 project template for nimaid.
 
 <img src="docs/example.jpg" width="300px" alt="The program's main image."/>
 
-[Download the pre-compiled .EXE here!](https://github.com/nimaid/python3-template/releases/latest)
+[Download the latest release here!](https://github.com/nimaid/python3-template/releases/latest)
 
 Syntax help:
 ```
