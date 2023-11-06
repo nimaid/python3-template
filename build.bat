@@ -15,7 +15,7 @@ set VERSION_INFO=%ORIGDIR%\file_version_info.txt
 
 
 echo Building portable EXE...
-call create-version-file version.yml --outfile %VERSION_INFO%
+call conda run -n %ENVNAME% create-version-file version.yml --outfile %VERSION_INFO%
 if errorlevel 1 goto ERROR
 call conda run -n %ENVNAME% pyinstaller ^
     --clean ^
