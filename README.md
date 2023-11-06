@@ -3,6 +3,8 @@ The personal Python 3 project template for nimaid.
 
 <img src="docs/example.jpg" width="300px" alt="The program's main image."/>
 
+[Download the pre-compiled .EXE here!](releases/latest)
+
 Syntax help:
 ```
 > python3-template.exe -h
