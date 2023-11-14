@@ -1,4 +1,4 @@
-name: python3-template
+name: {[name]}
 channels:
   - defaults
 dependencies:

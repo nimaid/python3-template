@@ -1,6 +1,6 @@
 @echo off
 
-set MAINFAILENAME=python3-template
+set MAINFAILENAME={[name]}
 set ENVNAME=%MAINFAILENAME%
 
 set ORIGDIR=%CD%

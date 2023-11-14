@@ -1,0 +1,7 @@
+Version: {[version]}
+CompanyName: {[author]}
+FileDescription: {[description]}
+InternalName: {[simple_name]}
+LegalCopyright: {[author]}
+OriginalFilename: {[name]}.exe
+ProductName: {[simple_name]}
