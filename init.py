@@ -97,7 +97,7 @@ class Python3TemplateInit:
         self.replace_key_in_all_files("version", self.version)
         
         # Delete old files
-        self.cleanup(self)
+        self.cleanup()
 
 # General purpose stripper
 def strip_all(input_text):
