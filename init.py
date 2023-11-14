@@ -55,14 +55,21 @@ class Python3TemplateInit:
         with open(file_in, "r") as f:
             file_text = f.read()
         
-        file_text.replace(full_key, value)
+        new_text = file_text.replace(full_key, value)
         
         with open(file_in, "w") as f:
-            f.write(file_text)
+            f.write(new_text)
     
     def replace_key_in_all_files(self, key, value):
         for v,k in enumerate(self.file_list):
-            self.replace_key_in_file(self.file_list[k]["main"])
+            self.replace_key_in_file(self.file_list[k]["main"], key, value)
+    
+    def cleanup(self):
+        # Delete source templates
+        for v,k in enumerate(self.file_list):
+            os.remove(self.file_list[k]["template"])
+        # Suicide
+        os.remove(PROG_FILE)
     
     def run(self):
         print()
@@ -79,8 +86,18 @@ class Python3TemplateInit:
             new_file = self.file_list[k]["main"]
             print(f"{template} --> {new_file}")
         
+        # Copy new files
+        self.copy_all_files()
         
-
+        # Replace the keys in the new files
+        self.replace_key_in_all_files("name", self.name)
+        self.replace_key_in_all_files("simple_name", self.simple_name)
+        self.replace_key_in_all_files("author", self.author)
+        self.replace_key_in_all_files("description", self.description)
+        self.replace_key_in_all_files("version", self.version)
+        
+        # Delete old files
+        self.cleanup(self)
 
 # General purpose stripper
 def strip_all(input_text):
@@ -100,8 +117,9 @@ def version_is_valid(version_number):
         return False
 
 def main(args):
-    name = user_prompt("Project name (short)")
-    simple_name = user_prompt("User-friendly name (long)")
+    print()
+    name = user_prompt("Project name (short, no spaces)")
+    simple_name = user_prompt("User-friendly name")
     author = user_prompt("Project author")
     description = user_prompt("Project description")
     
