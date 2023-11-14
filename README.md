@@ -1,5 +1,5 @@
 # nimaid's Python 3 Project Template
-The personal Python 3 project template for nimaid. 
+The personal Python 3 project template for nimaid.
 
 <img src="docs/example.jpg" width="300px" alt="The program's main image."/>
 
@@ -23,3 +23,7 @@ options:
   -o OPCODE, --operaton OPCODE
                         the operation to perform on the arguments, either "+", "-", "*", or "/" [+]
 ```
+
+
+# Remove This After Initialization
+Run `init.py` to set project info.
