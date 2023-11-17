@@ -89,9 +89,9 @@ class Python3TemplateInit:
             print(f"{template} --> {new_file}")
         print()
         
-        print("Press [P] to continue, any other button to quit...")
-        if keyboard.read_key() != "p":
-            exit(-1)
+        print("Press [Enter] to continue, any other button to quit...")
+        if keyboard.read_key() != "enter":
+            exit(1)
         print()
         
         # Copy new files

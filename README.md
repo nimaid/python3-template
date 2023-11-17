@@ -26,4 +26,4 @@ options:
 
 
 # Remove This After Initialization
-Run `init.py` to set project info.
+Run `init.bat` to set project info.

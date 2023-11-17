@@ -14,13 +14,13 @@ echo Cheking if Conda needs to be installed...
 call cmd /c %INSTALLCONDA%
 if errorlevel 1 goto ERROR
 
-echo 
+echo.
 echo Setup environment for "init.py"...
 call conda activate base
 if errorlevel 1 goto ERROR
 call pip install keyboard
 if errorlevel 1 goto ERROR
-echo 
+echo.
 echo Run "init.py"...
 call python init.py
 if errorlevel 1 goto ERROR
