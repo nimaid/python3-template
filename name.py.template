@@ -58,7 +58,7 @@ class Python3Template:
             print(f"The equation is {self.first} - {self.second}")
             return self.sub()
         elif self.opcode == self.OpCodes.MULT.value:
-            print(f"The equation is {self.first} * {self.second}"
+            print(f"The equation is {self.first} * {self.second}")
             return self.mult()
         elif self.opcode == self.OpCodes.DIV.value:
             print(f"The equation is {self.first} / {self.second}")
