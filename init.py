@@ -91,7 +91,7 @@ class Python3TemplateInit:
         
         print("Press [P] to continue, any other button to quit...")
         if keyboard.read_key() != "p":
-            exit()
+            exit(-1)
         print()
         
         # Copy new files
