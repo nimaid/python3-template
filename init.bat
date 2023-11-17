@@ -10,23 +10,26 @@ set SELFNAME="init.bat"
 
 cd %FILEDIR%
 
-REM Install conda
+echo Cheking if Conda needs to be installed...
 call cmd /c %INSTALLCONDA%
 if errorlevel 1 goto ERROR
 
-REM Run init.py
+echo 
+echo Setup environment for "init.py"...
 call conda activate base
 if errorlevel 1 goto ERROR
 call pip install keyboard
 if errorlevel 1 goto ERROR
+echo 
+echo Run "init.py"...
 call python init.py
 if errorlevel 1 goto ERROR
 
-REM Install the current conda environment
+echo Install the starting conda environment...
 call conda env create -f environment.yml
 if errorlevel 1 goto ERROR
 
-REM Delete the init files
+echo Delete remaining init files...
 del /f /q %INSTALLCONDA% 1>nul 2>&1
 del /f /q %SELFNAME% 1>nul 2>&1
 
