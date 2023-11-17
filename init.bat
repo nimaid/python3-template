@@ -16,10 +16,15 @@ if errorlevel 1 goto ERROR
 
 REM Run init.py
 call conda activate base
+if errorlevel 1 goto ERROR
+call pip install keyboard
+if errorlevel 1 goto ERROR
 call python init.py
+if errorlevel 1 goto ERROR
 
 REM Install the current conda environment
 call conda env create -f environment.yml
+if errorlevel 1 goto ERROR
 
 REM Delete the init files
 del /f /q %INSTALLCONDA% 1>nul 2>&1

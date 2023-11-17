@@ -2,6 +2,7 @@ import os
 import sys
 import re
 import shutil
+import keyboard
 
 PROG_FILE = os.path.realpath(__file__)
 PATH = os.path.dirname(PROG_FILE)
@@ -72,17 +73,26 @@ class Python3TemplateInit:
     def run(self):
         print()
         print("Project Info Summary")
+        print("--------------------")
         print(f"Name: {self.name}")
         print(f"Simple Name: {self.simple_name}")
         print(f"Author: {self.author}")
         print(f"Description: {self.description}")
         print(f"Version: {self.version}")
         print()
+        
         print("Project File Renaming")
+        print("---------------------")
         for v,k in enumerate(self.file_list):
             template = self.file_list[k]["template"]
             new_file = self.file_list[k]["main"]
             print(f"{template} --> {new_file}")
+        print()
+        
+        print("Press [P] to continue, any other button to quit...")
+        if keyboard.read_key() != "p":
+            exit()
+        print()
         
         # Copy new files
         self.copy_all_files()
