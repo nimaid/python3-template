@@ -3,6 +3,7 @@
 import os
 import sys
 import argparse
+import yaml
 from enum import Enum
 
 # Test if this is a PyInstaller executable or a .py file
@@ -16,6 +17,20 @@ else:
     PROG_FILE = os.path.realpath(__file__)
     PROG_PATH = os.path.dirname(PROG_FILE)
     PATH = PROG_PATH
+
+# Read program version file
+VERSION_FILE = os.path.join(PATH, "version.yml")
+with open(VERSION_FILE, "r") as f:
+    version_file_dict = yaml.safe_load(f)
+    
+    VERSION = version_file_dict["Version"]
+    DESCRIPTION = version_file_dict["FileDescription"]
+    TITLE = version_file_dict["InternalName"]
+    COPYRIGHT = version_file_dict["LegalCopyright"]
+    
+    del(version_file_dict)
+
+
 
 # Main class
 class Python3Template:
@@ -84,7 +99,7 @@ def file_path(string):
 # Parse arguments
 def parse_args(args):
     parser = argparse.ArgumentParser(
-        description="{[description]}\n\nDefault parameters are shown in [brackets].",
+        description=f"{DESCRIPTION}\n\nDefault parameters are shown in [brackets].",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
