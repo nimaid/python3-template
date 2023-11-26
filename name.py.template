@@ -30,8 +30,6 @@ with open(VERSION_FILE, "r") as f:
     
     del(version_file_dict)
 
-
-
 # Main class
 class Python3Template:
     def __init__(self,
