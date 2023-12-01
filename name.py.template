@@ -149,7 +149,7 @@ class Python3Template:
 # Parse arguments
 def parse_args(args):
     parser = argparse.ArgumentParser(
-        description=f"{DESCRIPTION}\n\nDefault parameters are shown in [brackets].",
+        description=f"{CONTEXT.DESCRIPTION}\n\nDefault parameters are shown in [brackets].",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     
