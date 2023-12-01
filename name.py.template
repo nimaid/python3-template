@@ -67,6 +67,8 @@ class ContextVars:
             self.PLATFORM = self.PlatformCodes.UNKNOWN
             # Unknown platform, save to wherever os.path thinks the home dir is
             self.APPDATA_DIR = USER_DIR
+        
+        self.DATA_DIR = os.path.join(self.APPDATA_DIR, self.TITLE)
 
 # Make a global ContextVar object to use in the main code
 CONTEXT = ContextVars()
