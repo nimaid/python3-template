@@ -1,34 +1,92 @@
 #!/usr/bin/env python3
 
+# ---- IMPORTS ----
+
 import os
 import sys
 import argparse
 import yaml
 from enum import Enum
 
-# Test if this is a PyInstaller executable or a .py file
-if getattr(sys, 'frozen', False):
-    IS_EXE = True
-    PROG_FILE = sys.executable
-    PROG_PATH = os.path.dirname(PROG_FILE)
-    PATH = sys._MEIPASS
-else:
-    IS_EXE = False
-    PROG_FILE = os.path.realpath(__file__)
-    PROG_PATH = os.path.dirname(PROG_FILE)
-    PATH = PROG_PATH
 
-# Read program version file
-VERSION_FILE = os.path.join(PATH, "version.yml")
-with open(VERSION_FILE, "r") as f:
-    version_file_dict = yaml.safe_load(f)
+# ---- STANDARD CLASSES / GLOBALS ----
+
+# A class to abstract useful variables which convery execution context
+class ContextVars:
+    def __init__(self):
+        self.get_pyinstaller_vars()
+        self.get_versionfile_vars()
+        self.get_platform_vars()
     
-    VERSION = version_file_dict["Version"]
-    DESCRIPTION = version_file_dict["FileDescription"]
-    TITLE = version_file_dict["InternalName"]
-    COPYRIGHT = version_file_dict["LegalCopyright"]
+    # Test if this is a PyInstaller executable or a .py file
+    def get_pyinstaller_vars(self):
+        if getattr(sys, 'frozen', False):
+            self.IS_EXE = True
+            self.PROG_FILE = sys.executable
+            self.PROG_PATH = os.path.dirname(self.PROG_FILE)
+            self.PATH = sys._MEIPASS
+        else:
+            self.IS_EXE = False
+            self.PROG_FILE = os.path.realpath(__file__)
+            self.PROG_PATH = os.path.dirname(self.PROG_FILE)
+            self.PATH = self.PROG_PATH
+
+    # Read program version file
+    def get_versionfile_vars(self):
+        self.VERSION_FILE = os.path.join(self.PATH, "version.yml")
+        with open(self.VERSION_FILE, "r") as f:
+            version_file_dict = yaml.safe_load(f)
+            
+            self.VERSION = version_file_dict["Version"]
+            self.DESCRIPTION = version_file_dict["FileDescription"]
+            self.TITLE = version_file_dict["InternalName"]
+            self.LONG_TITLE = version_file_dict["ProductName"]
+            self.COPYRIGHT = version_file_dict["LegalCopyright"]
     
-    del(version_file_dict)
+    # Platform codes
+    class PlatformCodes(Enum):
+        WINDOWS = "win32"
+        LINUX = "linux"
+        MAC = "darwin"
+        UNKNOWN = "unknown"
+    
+    # Set platform dependent variables
+    def get_platform_vars(self):
+        self.USER_DIR = os.path.expanduser("~")
+        
+        if sys.platform == self.PlatformCodes.WINDOWS.value:
+            self.PLATFORM = self.PlatformCodes.WINDOWS
+            self.APPDATA_DIR = os.path.join(self.USER_DIR, "AppData", "Roaming")
+        elif sys.platform == self.PlatformCodes.LINUX.value:
+            self.PLATFORM = self.PlatformCodes.LINUX
+            self.APPDATA_DIR = os.path.join(self.USER_DIR, ".local", "share")
+        elif sys.platform == self.PlatformCodes.MAC.value:
+            self.PLATFORM = self.PlatformCodes.MAC
+            self.APPDATA_DIR = os.path.join(self.USER_DIR, "Library", "Application Support")
+        else:
+            self.PLATFORM = self.PlatformCodes.UNKNOWN
+            # Unknown platform, save to wherever os.path thinks the home dir is
+            self.APPDATA_DIR = USER_DIR
+
+# Make a global ContextVar object to use in the main code
+CONTEXT = ContextVars()
+
+# Define commonly used helper functions (mainly for argument parsing)
+class Helpers:
+    # Makes sure a string represents a valid, exisitng file
+    # This can be used with argparse as a valid argument type
+    def file_path(string):
+        if os.path.isfile(string):
+            return string
+        else:
+            raise FileNotFoundError(string)
+
+    # General purpose text input stripper
+    def strip_all(input_text):
+        return input_text.strip().strip("\n").strip("\r").strip()
+
+
+# ---- MAIN CLASSES ----
 
 # Main class
 class Python3Template:
@@ -86,13 +144,7 @@ class Python3Template:
         print(f"The answer is {result}")
 
 
-
-# A helper function for the argument parser
-def file_path(string):
-    if os.path.isfile(string):
-        return string
-    else:
-        raise FileNotFoundError(string)
+# ---- PROGRAM EXECUTION ----
 
 # Parse arguments
 def parse_args(args):
