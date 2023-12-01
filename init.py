@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 import re
@@ -107,7 +109,7 @@ class Python3TemplateInit:
         # Delete old files
         self.cleanup()
 
-# General purpose stripper
+# General purpose text stripper
 def strip_all(input_text):
     return input_text.strip().strip("\n").strip("\r").strip()
 
@@ -132,7 +134,7 @@ def main(args):
     description = user_prompt("Project description")
     
     is_valid_version = False
-    default_version = "0.0.0.1"
+    default_version = "1.0.0.0"
     while not is_valid_version:
         version = user_prompt(f"Starting version number [default: {default_version}]")
         if version == "":
