@@ -9,15 +9,16 @@ import keyboard
 PROG_FILE = os.path.realpath(__file__)
 PATH = os.path.dirname(PROG_FILE)
 
+
 # Main class
 class Python3TemplateInit:
     def __init__(self,
-        name,
-        simple_name,
-        author,
-        description,
-        version
-    ):
+                 name,
+                 simple_name,
+                 author,
+                 description,
+                 version
+                 ):
         self.name = name
         self.simple_name = simple_name
         self.author = author
@@ -42,12 +43,13 @@ class Python3TemplateInit:
                 "template": "version.yml.template"
             }
         }
-    
+
     def copy_all_files(self):
         for v,k in enumerate(self.file_list):
             shutil.copy(self.file_list[k]["template"], self.file_list[k]["main"])
-    
-    def replace_key_in_file(self, file_in, key, value):
+
+    @staticmethod
+    def replace_key_in_file(file_in, key, value):
         delim_start = "{["
         delim_end = "]}"
         
@@ -109,9 +111,11 @@ class Python3TemplateInit:
         # Delete old files
         self.cleanup()
 
+
 # General purpose text stripper
 def strip_all(input_text):
     return input_text.strip().strip("\n").strip("\r").strip()
+
 
 # Interactive prompt
 def user_prompt(prompt_text):
@@ -119,12 +123,14 @@ def user_prompt(prompt_text):
     user_input = input(f"{prompt_text_stripped}: ")
     return strip_all(user_input)
 
+
 # Tests if a version number is valid
 def version_is_valid(version_number):
     if re.match(r"^\d+\.\d+\.\d+\.\d+$", version_number):
         return True
     else:
         return False
+
 
 def main(args):
     print()
@@ -157,8 +163,10 @@ def main(args):
     
     python_3_template_init.run()
 
+
 def run():
     main(sys.argv[1:])
+
 
 if __name__ == "__main__":
     run()

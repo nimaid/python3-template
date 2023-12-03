@@ -11,11 +11,27 @@ from enum import Enum
 
 # ---- STANDARD CLASSES / GLOBALS ----
 
-# A class to abstract useful variables which convery execution context
+# A class to abstract useful variables which convey execution context
 class ContextVars:
     def __init__(self):
+        self.IS_EXE = None
+        self.PROG_FILE = None
+        self.PROG_PATH = None
+        self.PATH = None
         self.get_pyinstaller_vars()
+
+        self.VERSION_FILE = None
+        self.VERSION = None
+        self.DESCRIPTION = None
+        self.TITLE = None
+        self.LONG_TITLE = None
+        self.COPYRIGHT = None
         self.get_versionfile_vars()
+
+        self.USER_DIR = None
+        self.PLATFORM = None
+        self.APPDATA_DIR = None
+        self.DATA_DIR = None
         self.get_platform_vars()
     
     # Test if this is a PyInstaller executable or a .py file
@@ -70,22 +86,26 @@ class ContextVars:
         
         self.DATA_DIR = os.path.join(self.APPDATA_DIR, self.TITLE)
 
+
 # Make a global ContextVar object to use in the main code
 CONTEXT = ContextVars()
 
+
 # Define commonly used helper functions (mainly for argument parsing)
 class Helpers:
-    # Makes sure a string represents a valid, exisitng file
+    # General purpose text input stripper
+    @staticmethod
+    def strip_all(input_text):
+        return input_text.strip().strip("\n").strip("\r").strip()
+
+    # Makes sure a string represents a valid, existing file
     # This can be used with argparse as a valid argument type
+    @staticmethod
     def file_path(string):
         if os.path.isfile(string):
             return string
         else:
             raise FileNotFoundError(string)
-
-    # General purpose text input stripper
-    def strip_all(input_text):
-        return input_text.strip().strip("\n").strip("\r").strip()
 
 
 # ---- MAIN CLASSES ----
@@ -93,10 +113,10 @@ class Helpers:
 # Main class
 class Python3Template:
     def __init__(self,
-        first,
-        second,
-        opcode
-    ):
+                 first,
+                 second,
+                 opcode
+                 ):
         self.first = first
         self.second = second
         self.opcode = opcode.strip()
@@ -159,10 +179,11 @@ def parse_args(args):
         help="the first argument")
     parser.add_argument("-2", "--second", dest="second_arg", type=float, required=False, default=1.0,
         help="the second argument [1]")
-    parser.add_argument("-o", "--operaton", dest="opcode", type=str, required=False, default="+",
+    parser.add_argument("-o", "--operation", dest="opcode", type=str, required=False, default="+",
         help="the operation to perform on the arguments, either \"+\", \"-\", \"*\", or \"/\" [+]")
     
     return parser.parse_args()
+
 
 def main(args):
     args = parse_args(args)
@@ -174,8 +195,10 @@ def main(args):
     
     python_3_template.run()
 
+
 def run():
     main(sys.argv[1:])
+
 
 if __name__ == "__main__":
     run()
