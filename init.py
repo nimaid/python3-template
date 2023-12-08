@@ -53,7 +53,7 @@ class Python3TemplateInit:
             },
             "links": {
                 "main": os.path.join("module_name", "constants", "links.py"),
-                "template": os.path.join("module_name", "constants", "links.py")
+                "template": os.path.join("module_name", "constants", "links.py.template")
             }
         }
 
