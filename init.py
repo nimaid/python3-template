@@ -98,7 +98,10 @@ class Python3TemplateInit:
             template = self.file_list[k]["template"]
             new_file = self.file_list[k]["main"]
             print(f"{template} --> {new_file}")
-        print("module_name --> {}".format(self.info["module_name"]))
+        print("module_name{sep} --> {val}{sep}".format(
+            val=self.info["module_name"],
+            sep=os.path.sep)
+        )
         print()
 
         print("Press [Enter] to continue, any other button to quit...")
@@ -113,7 +116,8 @@ class Python3TemplateInit:
         for v, k in enumerate(self.info):
             self.replace_key_in_all_files(k, self.info[k])
 
-        # TODO: Rename module_name 
+        # Rename the module dir
+        os.rename("module_name", self.info["module_name"])
 
         # Delete old files
         self.cleanup()
