@@ -1,7 +1,7 @@
-# <img src="https://raw.githubusercontent.com/{[author_username]}/{[name]}/main/icon.png" height="20px" alt=""/> {[simple_name]}
+# <img src="https://github.com/{[author_username]}/{[name]}/blob/main/{[module_name]}/resources/icon.png?raw=true" height="20px" alt=""/> {[simple_name]}
 ### {[description]}
 
-<p align="center"><img src="https://raw.githubusercontent.com/{[author_username]}/{[name]}/main/docs/example.jpg" width="800px" alt="Example image"/></p>
+<p align="center"><img src="https://github.com/{[author_username]}/{[name]}/blob/main/docs/example.jpg?raw=true" width="800px" alt="Example image"/></p>
 
 ## Command Line Usage:
 ```
