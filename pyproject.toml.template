@@ -8,7 +8,9 @@ authors = [
 ]
 readme = "README_pypi.MD"
 classifiers = []
-dependencies = []
+dependencies = [
+    pyyaml
+]
 
 [project.urls]
 homepage = "https://github.com/nimaid/{[name]}}"
