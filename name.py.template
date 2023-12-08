@@ -4,4 +4,4 @@ import sys
 import {[module_name]}
 
 if __name__ == "__main__":
-    {[module_name]}.run(sys.argv)
+    {[module_name]}.run()
