@@ -49,7 +49,7 @@ class Python3TemplateInit:
             },
             "readme-pypi": {
                 "main": "README-pypi.md",
-                "template": "README.md-pypi.template"
+                "template": "README-pypi.md.template"
             },
             "program": {
                 "main": "{}.py".format(self.info["name"]),
