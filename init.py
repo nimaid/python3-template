@@ -89,14 +89,14 @@ class Python3TemplateInit:
         print("Project Info Summary")
         print("--------------------")
         for v, k in enumerate(self.info):
-            print(f"{k}: {v}")
+            print(f"{k}: {self.info[k]}")
         print()
 
         print("Project File Renaming")
         print("---------------------")
         for v, k in enumerate(self.file_list):
-            template = v["template"]
-            new_file = v["main"]
+            template = self.file_list[k]["template"]
+            new_file = self.file_list[k]["main"]
             print(f"{template} --> {new_file}")
         print("module_name --> {}".format(self.info["module_name"]))
         print()
@@ -111,7 +111,9 @@ class Python3TemplateInit:
 
         # Replace the keys in the new files
         for v, k in enumerate(self.info):
-            self.replace_key_in_all_files(k, v)
+            self.replace_key_in_all_files(k, self.info[k])
+
+        # TODO: Rename module_name 
 
         # Delete old files
         self.cleanup()
