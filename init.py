@@ -44,7 +44,7 @@ class Python3TemplateInit:
                 "template": "pyproject.toml.template"
             },
             "program": {
-                "main": f"{self.name}.py",
+                "main": "{}.py".format(self.info["name"]),
                 "template": "name.py.template"
             },
             "version": {
@@ -97,7 +97,8 @@ class Python3TemplateInit:
         for v, k in enumerate(self.file_list):
             template = v["template"]
             new_file = v["main"]
-            print(f"{k}: {template} --> {new_file}")
+            print(f"{template} --> {new_file}")
+        print("module_name --> {}".format(self.info["module_name"]))
         print()
 
         print("Press [Enter] to continue, any other button to quit...")
@@ -167,7 +168,7 @@ def main(args):
         author_username=author_username,
         author_email=author_email,
         description=description,
-        version=
+        version=version
     )
 
     python_3_template_init.run()
