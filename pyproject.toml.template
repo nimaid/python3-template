@@ -1,0 +1,20 @@
+[project]
+name = "{[module_name]}"
+version = "{[version]}"
+description = "{[description]}"
+license= {file = "LICENSE"}
+authors = [
+    {name = "{[author]}", email = "{[author_email]}"}
+]
+readme = "README_pypi.MD"
+classifiers = []
+dependencies = []
+
+[project.urls]
+homepage = "https://github.com/nimaid/{[name]}}"
+repository = "https://github.com/nimaid/{[name]}"
+Issues = "https://github.com/nimaid/{[name]}/issues"
+
+
+[project.scripts]
+pixelgreat-gui = "{[module_name]}:run"
