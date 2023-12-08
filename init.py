@@ -59,7 +59,7 @@ class Python3TemplateInit:
 
     def copy_all_files(self):
         for v, k in enumerate(self.file_list):
-            shutil.copy(v["template"], v["main"])
+            shutil.copy(self.file_list[k]["template"], self.file_list[k]["main"])
 
     @staticmethod
     def replace_key_in_file(file_in, key, value, delim_start="{[", delim_end="]}"):
