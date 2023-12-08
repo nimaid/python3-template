@@ -116,11 +116,11 @@ class Python3TemplateInit:
         for v, k in enumerate(self.info):
             self.replace_key_in_all_files(k, self.info[k])
 
-        # Rename the module dir
-        os.rename("module_name", self.info["module_name"])
-
         # Delete old files
         self.cleanup()
+
+        # Rename the module dir
+        os.rename("module_name", self.info["module_name"])
 
 
 # General purpose stripper
