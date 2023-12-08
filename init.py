@@ -43,6 +43,14 @@ class Python3TemplateInit:
                 "main": "pyproject.toml",
                 "template": "pyproject.toml.template"
             },
+            "readme": {
+                "main": "README.md",
+                "template": "README.md.template"
+            },
+            "readme-pypi": {
+                "main": "README-pypi.md",
+                "template": "README.md-pypi.template"
+            },
             "program": {
                 "main": "{}.py".format(self.info["name"]),
                 "template": "name.py.template"

@@ -17,4 +17,4 @@ Issues = "https://github.com/nimaid/{[name]}/issues"
 
 
 [project.scripts]
-pixelgreat-gui = "{[module_name]}:run"
+{[name]} = "{[module_name]}:run"
