@@ -64,8 +64,8 @@ class Python3TemplateInit:
                 "template": os.path.join("module_name", "constants", "links.py.template")
             },
             "manifest": {
-                "main": os.path.join("module_name", "constants", "MANIFEST.in"),
-                "template": os.path.join("module_name", "constants", "MANIFEST.in.template")
+                "main": "MANIFEST.in",
+                "template": "MANIFEST.in.template"
             }
         }
 
