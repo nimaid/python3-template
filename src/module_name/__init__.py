@@ -1,1 +1,1 @@
-from .main import run
+from .core import run
