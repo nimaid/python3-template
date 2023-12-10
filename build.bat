@@ -1,8 +1,8 @@
 @echo off
 
-set MAINFAILENAME={[name]}
+set MAINFAILENAME=python3-template
 set ENVNAME=%MAINFAILENAME%
-set MODULENAME={[module_name]}
+set MODULENAME=python3_template
 
 set ORIGDIR=%CD%
 set SOURCEDIR=%ORIGDIR%\%MODULENAME%

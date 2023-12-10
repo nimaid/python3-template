@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python3_template"
+version = "0.1.0"
+description = "A Python 3 Template"
+readme = "README_pypi.md"
+license= {file = "LICENSE"}
+authors = [
+    {name = "Ella Jameson", email = "ellagjameson@gmail.com"}
+]
+
+classifiers = []
+dependencies = [
+    "pyyaml"
+]
+
+[project.urls]
+homepage = "https://github.com/nimaid/python3-template"
+repository = "https://github.com/nimaid/python3-template"
+Issues = "https://github.com/nimaid/python3-template/issues"
+
+
+[project.scripts]
+python3-template = "python3_template:run"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["python3_template"]

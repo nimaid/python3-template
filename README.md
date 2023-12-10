@@ -1,11 +1,11 @@
-# <img src="{[module_name]}/resources/icon.png" height="20px" alt=""/> {[simple_name]}
-### {[description]}
+# <img src="python3_template/resources/icon.png" height="20px" alt=""/> Python 3 Template
+### A Python 3 Template
 
 <p align="center"><img src="docs/example.jpg" width="800px" alt="Example image"/></p>
 
 ## Command Line Usage:
 ```
-usage: {[name]} [-h] -1 FIRST_ARG [-2 SECOND_ARG] [-o OPCODE]
+usage: python3-template [-h] -1 FIRST_ARG [-2 SECOND_ARG] [-o OPCODE]
 
 A python 3 module.
 

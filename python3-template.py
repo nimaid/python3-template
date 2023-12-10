@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-import {[module_name]}
+import python3_template
 
 if __name__ == "__main__":
-    {[module_name]}.run()
+    python3_template.run()

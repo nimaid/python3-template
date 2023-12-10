@@ -1,0 +1,2 @@
+include python3_template/*.yml python3_template/*.py
+graft python3_template/resources
