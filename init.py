@@ -56,12 +56,12 @@ class Python3TemplateInit:
                 "template": "name.py.template"
             },
             "version": {
-                "main": os.path.join("src/module_name", "version.yml"),
-                "template": os.path.join("src/module_name", "version.yml.template")
+                "main": os.path.join("src", "module_name", "version.yml"),
+                "template": os.path.join("src", "module_name", "version.yml.template")
             },
             "links": {
-                "main": os.path.join("src/module_name", "constants", "links.py"),
-                "template": os.path.join("src/module_name", "constants", "links.py.template")
+                "main": os.path.join("src", "module_name", "constants", "links.py"),
+                "template": os.path.join("src", "module_name", "constants", "links.py.template")
             },
             "manifest": {
                 "main": "MANIFEST.in",
@@ -110,7 +110,7 @@ class Python3TemplateInit:
             template = self.file_list[k]["template"]
             new_file = self.file_list[k]["main"]
             print(f"{template} --> {new_file}")
-        print("module_name{sep} --> {val}{sep}".format(
+        print("src{sep}module_name{sep} --> src{sep}{val}{sep}".format(
             val=self.info["module_name"],
             sep=os.path.sep)
         )
@@ -132,7 +132,7 @@ class Python3TemplateInit:
         self.cleanup()
 
         # Rename the module dir
-        os.rename("src/module_name", self.info["module_name"])
+        os.rename(os.path.join("src", "module_name"), os.path.join("src", self.info["module_name"]))
 
 
 # General purpose stripper
