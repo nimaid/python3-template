@@ -30,4 +30,4 @@ issues = "https://github.com/{[author_username]}/{[name]}/issues"
 include-package-data = true
 
 [tool.setuptools.packages.find]
-where = ["{[module_name]}"]
+where = ["src"]

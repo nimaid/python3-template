@@ -56,12 +56,12 @@ class Python3TemplateInit:
                 "template": "name.py.template"
             },
             "version": {
-                "main": os.path.join("module_name", "version.yml"),
-                "template": os.path.join("module_name", "version.yml.template")
+                "main": os.path.join("src/module_name", "version.yml"),
+                "template": os.path.join("src/module_name", "version.yml.template")
             },
             "links": {
-                "main": os.path.join("module_name", "constants", "links.py"),
-                "template": os.path.join("module_name", "constants", "links.py.template")
+                "main": os.path.join("src/module_name", "constants", "links.py"),
+                "template": os.path.join("src/module_name", "constants", "links.py.template")
             },
             "manifest": {
                 "main": "MANIFEST.in",
@@ -132,7 +132,7 @@ class Python3TemplateInit:
         self.cleanup()
 
         # Rename the module dir
-        os.rename("module_name", self.info["module_name"])
+        os.rename("src/module_name", self.info["module_name"])
 
 
 # General purpose stripper

@@ -1,2 +1,2 @@
-include {[module_name]}/*.yml {[module_name]}/*.py
-graft {[module_name]}/resources
+include src/{[module_name]}/*.yml src/{[module_name]}/*.py
+graft src/{[module_name]}/resources

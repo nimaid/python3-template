@@ -1,4 +1,4 @@
-from .paths import IS_EXE, PROG_PATH, PATH
+from .paths import IS_EXE, PATH
 from .version import VERSION_FILE, VERSION, DESCRIPTION, TITLE, LONG_TITLE, COPYRIGHT
 from .platform import USER_DIR, PLATFORM, APPDATA_DIR, DATA_DIR
 from .enums import PlatformCode, OpCode
