@@ -18,9 +18,9 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://github.com/nimaid/{[name]}"
-repository = "https://github.com/nimaid/{[name]}"
-Issues = "https://github.com/nimaid/{[name]}/issues"
+homepage = "https://github.com/{[author_username]}/{[name]}"
+repository = "https://github.com/{[author_username]}/{[name]}"
+issues = "https://github.com/{[author_username]}/{[name]}/issues"
 
 
 [project.scripts]
