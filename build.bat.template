@@ -29,11 +29,11 @@ call conda run -n %ENVNAME% pyinstaller ^
     --clean ^
     --noconfirm ^
     --noconsole ^
-	--add-data %SOURCEDIR%\*.py;.\%MODULENAME% ^
-	--add-data %SOURCEDIR%\version.yml;.\%MODULENAME% ^
-	--add-data %SOURCEDIR%\constants\*.py;.\%MODULENAME%\constants ^
-	--add-data %SOURCEDIR%\helpers\*.py;.\%MODULENAME%\helpers ^
-	--add-data %SOURCEDIR%\resources\*;.\%MODULENAME%\resources ^
+	--add-data %SOURCEDIR%\*.py;.\src\%MODULENAME% ^
+	--add-data %SOURCEDIR%\version.yml;.\src\%MODULENAME% ^
+	--add-data %SOURCEDIR%\constants\*.py;.\src\%MODULENAME%\constants ^
+	--add-data %SOURCEDIR%\helpers\*.py;.\src\%MODULENAME%\helpers ^
+	--add-data %SOURCEDIR%\resources\*;.\src\%MODULENAME%\resources ^
     --onefile ^
     --icon=%ICON_ICO% ^
     --version-file=%VERSION_INFO% ^
