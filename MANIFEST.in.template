@@ -1,0 +1,2 @@
+include {[module_name]}/*.yml {[module_name]}/*.py
+graft {[module_name]}/resources

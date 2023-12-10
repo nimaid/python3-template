@@ -1,15 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "{[module_name]}"
 version = "{[version]}"
 description = "{[description]}"
+readme = "README_pypi.md"
 license= {file = "LICENSE"}
 authors = [
     {name = "{[author]}", email = "{[author_email]}"}
 ]
-readme = "README_pypi.MD"
+
 classifiers = []
 dependencies = [
-    pyyaml
+    "pyyaml"
 ]
 
 [project.urls]
@@ -20,3 +25,9 @@ Issues = "https://github.com/nimaid/{[name]}/issues"
 
 [project.scripts]
 {[name]} = "{[module_name]}:run"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["{[module_name]}"]

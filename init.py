@@ -48,8 +48,8 @@ class Python3TemplateInit:
                 "template": "README.md.template"
             },
             "readme-pypi": {
-                "main": "README-pypi.md",
-                "template": "README-pypi.md.template"
+                "main": "README_pypi.md",
+                "template": "README_pypi.md.template"
             },
             "program": {
                 "main": "{}.py".format(self.info["name"]),
@@ -62,6 +62,10 @@ class Python3TemplateInit:
             "links": {
                 "main": os.path.join("module_name", "constants", "links.py"),
                 "template": os.path.join("module_name", "constants", "links.py.template")
+            },
+            "manifest": {
+                "main": os.path.join("module_name", "constants", "MANIFEST.in"),
+                "template": os.path.join("module_name", "constants", "MANIFEST.in.template")
             }
         }
 
