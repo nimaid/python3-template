@@ -28,7 +28,6 @@ if errorlevel 1 goto ERROR
 call conda run -n %ENVNAME% pyinstaller ^
     --clean ^
     --noconfirm ^
-    --noconsole ^
 	--add-data %SOURCEDIR%\*.py;.\src\%MODULENAME% ^
 	--add-data %SOURCEDIR%\version.yml;.\src\%MODULENAME% ^
 	--add-data %SOURCEDIR%\constants\*.py;.\src\%MODULENAME%\constants ^
