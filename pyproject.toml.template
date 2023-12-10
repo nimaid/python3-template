@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "{[module_name]}"
+name = "{[name]}"
 version = "{[version]}"
 description = "{[description]}"
 readme = "README_pypi.md"
