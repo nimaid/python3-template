@@ -20,7 +20,7 @@ dependencies = [
 [project.urls]
 homepage = "https://github.com/nimaid/python3-template"
 repository = "https://github.com/nimaid/python3-template"
-Issues = "https://github.com/nimaid/python3-template/issues"
+issues = "https://github.com/nimaid/python3-template/issues"
 
 
 [project.scripts]
