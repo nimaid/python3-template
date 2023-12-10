@@ -27,7 +27,6 @@ if errorlevel 1 goto ERROR
 
 echo Install the starting conda environment...
 call conda env create -f environment.yml
-if errorlevel 1 goto ERROR
 
 echo Delete remaining init files...
 del /f /q %INSTALLCONDA% 1>nul 2>&1
