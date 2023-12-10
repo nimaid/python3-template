@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python3_template"
+name = "python3-template"
 version = "0.1.0"
 description = "A Python 3 Template"
 readme = "README_pypi.md"
