@@ -1,4 +1,4 @@
-# <img src="{[module_name]}/resources/icon.png" height="20px" alt=""/> {[simple_name]}
+# <img src="src/{[module_name]}/resources/icon.png" height="20px" alt=""/> {[simple_name]}
 ### {[description]}
 
 <p align="center"><img src="docs/example.jpg" width="800px" alt="Example image"/></p>
