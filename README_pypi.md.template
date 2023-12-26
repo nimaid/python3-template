@@ -3,9 +3,6 @@
 
 <p align="center"><img src="https://github.com/{[author_username]}/{[module_name]}/blob/main/docs/example.jpg?raw=true" width="800px" alt="Example image"/></p>
 
-<p align="center"><a href="https://pypi.org/project/{[module_name]}/"><img src="https://pypi.org/static/images/logo-large.9f732b5f.svg" width="200px" alt="{[module_name]} on Pypi"></a></p>
-
-
 ## Command Line Usage:
 ```
 usage: {[module_name]} [-h] -1 FIRST_ARG [-2 SECOND_ARG] [-o OPCODE]
