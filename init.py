@@ -53,8 +53,8 @@ class Python3TemplateInit:
                 "template": os.path.join("docs", "src", "index.rst.template"),
             },
             "init": {
-                "main": os.path.join("src", self.info["module_name"], "__init__.py"),
-                "template": os.path.join("src", self.info["module_name"], "__init__.py.template")
+                "main": os.path.join("src", "module_name", "__init__.py"),
+                "template": os.path.join("src", "module_name", "__init__.py.template")
             },
             "env": {
                 "main": "environment.yml",
