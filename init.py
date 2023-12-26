@@ -12,6 +12,7 @@ PATH = os.path.dirname(PROG_FILE)
 class Python3TemplateInit:
     def __init__(self,
                  name,
+                 module_name,
                  simple_name,
                  author,
                  author_username,
@@ -21,7 +22,7 @@ class Python3TemplateInit:
                  ):
         self.info = {
             "name": name,
-            "module_name": name.lower().replace("-", "_"),
+            "module_name": module_name,
             "simple_name": simple_name,
             "author": author,
             "author_username": author_username,
@@ -34,6 +35,26 @@ class Python3TemplateInit:
             "build": {
                 "main": "build.bat",
                 "template": "build.bat.template"
+            },
+            "build_pypi": {
+                "main": "build_pypi.bat",
+                "template": "build_pypi.bat.template"
+            },
+            "build_docs": {
+                "main": "build_docs.bat",
+                "template": "build_docs.bat.template"
+            },
+            "docs_conf": {
+                "main": os.path.join("docs", "src", "conf.py"),
+                "template": os.path.join("docs", "src", "conf.py.template"),
+            },
+            "docs_index": {
+                "main": os.path.join("docs", "src", "index.rst"),
+                "template": os.path.join("docs", "src", "index.rst.template"),
+            },
+            "init": {
+                "main": os.path.join("src", self.info["module_name"], "__init__.py"),
+                "template": os.path.join("src", self.info["module_name"], "__init__.py.template")
             },
             "env": {
                 "main": "environment.yml",
@@ -52,8 +73,8 @@ class Python3TemplateInit:
                 "template": "README_pypi.md.template"
             },
             "program": {
-                "main": "{}.py".format(self.info["name"]),
-                "template": "name.py.template"
+                "main": f"{self.info['module_name']}.py",
+                "template": "module_name.py.template"
             },
             "version": {
                 "main": os.path.join("src", "module_name", "version.yml"),
@@ -157,7 +178,8 @@ def version_is_valid(version_number):
 
 def main(args):
     print()
-    name = user_prompt("Project name (short, no spaces)")
+    name = user_prompt("GitHub name (short, no spaces)")
+    module_name = user_prompt("Module name (short, no spaces)")
     simple_name = user_prompt("User-friendly name")
     author = user_prompt("Project author")
     author_username = user_prompt("Project author's username")
@@ -173,7 +195,7 @@ def main(args):
             is_valid_version = True
         elif not version_is_valid(version):
             print("  ERROR: Version number must be in the format #.#.#")
-            print("  (four decimal numbers separated by three periods)")
+            print("  (three decimal numbers separated by three periods)")
             print("  Please enter a valid version number, or press")
             print("  enter to accept the default value.")
         else:
@@ -181,6 +203,7 @@ def main(args):
 
     python_3_template_init = Python3TemplateInit(
         name=name,
+        module_name=module_name,
         simple_name=simple_name,
         author=author,
         author_username=author_username,

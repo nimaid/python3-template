@@ -1,6 +1,6 @@
 @echo off
 
-set MAINFAILENAME={[name]}
+set MAINFAILENAME={[module_name]}
 set ENVNAME=%MAINFAILENAME%
 set MODULENAME={[module_name]}
 
