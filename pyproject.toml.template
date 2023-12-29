@@ -19,6 +19,7 @@ dependencies = [
 [project.urls]
 homepage = "https://github.com/{[author_username]}/{[name]}"
 repository = "https://github.com/{[author_username]}/{[name]}"
+documentation = "https://{[name]}.readthedocs.io/en/latest/index.html"
 issues = "https://github.com/{[author_username]}/{[name]}/issues"
 
 [project.scripts]
