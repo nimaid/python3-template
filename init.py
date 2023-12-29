@@ -73,8 +73,8 @@ class Python3TemplateInit:
                 "template": "README_pypi.md.template"
             },
             "program": {
-                "main": f"{self.info['module_name']}.py",
-                "template": "module_name.py.template"
+                "main": f"{self.info['name']}.py",
+                "template": "name.py.template"
             },
             "version": {
                 "main": os.path.join("src", "module_name", "version.yml"),
