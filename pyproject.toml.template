@@ -4,8 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "{[module_name]}"
-version = "{[version]}"
-description = "{[description]}"
+dynamic = ["version", "description"]
 readme = "README_pypi.md"
 license= {file = "LICENSE"}
 authors = [
